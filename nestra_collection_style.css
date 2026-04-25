@@ -1,0 +1,203 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.nav-bar {
+    background-color: rgb(212, 231, 247);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    padding: 0 2%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+    column-gap: 30px;
+}
+
+.nav-bar ul li a {
+    text-decoration: none;
+    color: #01004d;
+    font-weight: 500;
+}
+
+.nav-bar button {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
+#side-nav-popup {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #171717;
+    transition: 0.4s ease-in-out;
+    z-index: 101;
+    padding-top: 60px;
+}
+
+#side-nav-popup.show {
+    left: 0;
+}
+
+#side-nav-popup button {
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#side-nav-popup ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}
+
+#side-nav-popup ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.search-bar{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar article{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    border: 3px solid black;
+    border-radius: 20px;
+}
+.search-bar .search-parent{
+    width: 100%;
+}
+.search-parent input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    margin-left: 1%;
+}
+.search-parent input:focus{
+    outline: none;
+}
+
+.products-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products-section div{
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 30px;
+}
+.products-section div article{
+    object-fit: cover;
+    overflow: hidden;
+    flex-basis: 20%;
+    position: relative;
+    width: 200px;
+    height: 350px;
+    border-radius: 5px;
+}
+
+.products-section div article .button-container{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.596);
+    border-radius: 5px;
+    transition-duration: 200ms;
+    animation-duration: 200ms;
+}
+
+.products-section div article div button{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    opacity: 0.9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ebc676;
+    color: #ffffff;
+}
+
+img{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition-duration: 300ms;
+}
+.products-section article:hover .button-container{
+    overflow: hidden;
+    opacity: 1;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    transition-duration: 200ms;
+    animation-duration: 200ms;
+}
+
+.products-section article:hover img{
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 768px) {
+    .nav-bar ul {
+        display: none;
+    }
+
+    .nav-bar button {
+        display: block;
+    }
+    .products-section div article{
+        flex-basis: 40%;
+    }
+}
+
+@media screen and (max-width:480px){
+    .products-section div article{
+        flex-basis: 80%;
+    }
+}
